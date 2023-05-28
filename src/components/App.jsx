@@ -1,31 +1,43 @@
 
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { Layout } from "./Layout/Layout";
+import { PrivateRoute } from "./PrivateRoute";
+import { RestrictedRoute } from "./RestrictedRoute";
+import { useAuth } from "hooks";
 
-const Home = lazy(() => import('pages/Home'));
-const Login = lazy(() => import('pages/Login'));
-const Register = lazy(() => import('pages/Register'));
+const HomePage = lazy(() => import('pages/Home'));
+const LoginPage = lazy(() => import('pages/Login'));
+const RegisterPage = lazy(() => import('pages/Register'));
+const ContactsBookPage = lazy(() => import('pages/ContactsBook'))
 
 
 const App =() => {
 
-    return (
-     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/login">Log in</Link>
-        <Link to="/register">Register</Link>
-      </nav>
-      <Suspense fallback={<div>Loading...</div>}>
+  const dispatch = useDispatch();
+  const {isRefreshing} = useAuth();
+
+    return isRefreshing ? (<b>Refreshing user...</b>) : (
+
       <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="login" element={<Login />}/>
-      <Route path="register" element={<Register/>}/>
+      <Route path="/" element={<Layout />}/>
+      <Route index element={<HomePage/>}/>
+      <Route path="register" element={
+        <RestrictedRoute redirectTo="/contacts" component={<RegisterPage/>}/>
+      }/>
+      <Route path="login" element={
+        <RestrictedRoute redirectTo="/contacts" component={<LoginPage />}/>
+      }/>
+      <Route path="contacts" element={
+        <PrivateRoute redirectTo="/login" component={<ContactsBookPage/>}/>
+      }/>
+      
      </Routes>
-      </Suspense>
+  
      
-     </div>
+  
     );
   
   
