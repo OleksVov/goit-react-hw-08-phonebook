@@ -22,7 +22,23 @@ const authSlice = createSlice({
     state.user = action.payload.user;
     state.token = action.payload.token;
     state.isLoggedIn = true;
-}
+},
+[logOut.fulfilled](state) {
+    state.user = { name: null, email: null };
+    state.isLoggedIn = false;
+    state.token = null;
+  },
+  [refreshUser.pending](state) {
+    state.isRefreshing = true;
+  },
+  [refreshUser.fulfilled](state, action) {
+    state.isRefreshing = false;
+    state.user = action.payload;
+    state.isLoggedIn = true;
+  },
+  [refreshUser.rejected](state) {
+    state.isRefreshing = false;
+  },
     },
 });
 
