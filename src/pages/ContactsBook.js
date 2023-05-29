@@ -27,7 +27,7 @@ export default function ContactsBook() {
     };
   
   
-    const handleAddContacts = ({name,number}) => {
+    const handleAddContacts = (name,number) => {
       const checkContact =checkExistingContact(contacts, name);
       if (checkContact) {
         alert (`${name} is already in contacts`)
