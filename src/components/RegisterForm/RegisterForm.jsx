@@ -11,11 +11,14 @@ export const RegisterForm =() => {
         const form = event.currentTarget;
         dispatch(
             register({
-                name: form.element.name.value,
-                email: form.element.email.value,
-                password: form.element.password.value,
+                name: form.elements.name.value,
+                email: form.elements.email.value,
+                password: form.elements.password.value,
+               
             })
+            
         );
+  
         form.reset();
     };
 

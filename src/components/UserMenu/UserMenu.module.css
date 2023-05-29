@@ -6,4 +6,21 @@
   
   .username {
     font-weight: 700;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.401);
   }
+
+  .button {
+    width: 80px;
+    height: 28px;
+    background-color: whitesmoke;
+   color: black;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+   font-family: inherit;
+   font-weight: 600;
+   font-size: 14px;
+   line-height: 1.88;
+   letter-spacing: 0.06em;
+   cursor: pointer;
+}

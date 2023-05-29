@@ -18,11 +18,11 @@ const filterOfContacts = filteredContacts(contacts, filter)
 
     return (
         <ul className={css.list}>
-        {filterOfContacts.map(({id, name, phone}) => (
+        {filterOfContacts.map(({id, name, number}) => (
           <li
           className={css.contactItem}
           key={id}>
-            <p className={css.nameContact}>{name}: {phone}</p>
+            <p className={css.nameContact}>{name}: {number}</p>
             <button  className={css.buttonDelete} type="button" onClick={() => onDelete(id)}>Delete</button>
           </li>
         ))}

@@ -27,13 +27,13 @@ export default function ContactsBook() {
     };
   
   
-    const handleAddContacts = (name,number) => {
+    const handleAddContacts = ({name,number}) => {
       const checkContact =checkExistingContact(contacts, name);
       if (checkContact) {
         alert (`${name} is already in contacts`)
         return;
       }
-      dispatch(addContact({name: name, phone: number}))
+      dispatch(addContact({name: name, number: number}))
     };
     
     const handleDeleteContact = contactId => {
