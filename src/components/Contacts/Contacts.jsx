@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 import { useSelector } from "react-redux";
 import {getContacts, getFilter} from 'redux/selectors';
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updateContact } from "redux/contactOperations";
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { updateContact } from "redux/contactOperations";
 
 
 
