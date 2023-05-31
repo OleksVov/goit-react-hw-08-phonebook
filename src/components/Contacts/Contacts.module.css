@@ -11,7 +11,7 @@
     list-style: none;
  }
 
-.buttonDelete {
+.button {
     width: 80px;
     height: 28px;
     background-color: whitesmoke;
@@ -33,4 +33,20 @@
     line-height: 1.167;
     letter-spacing: 0.02em;
     color: #585555;
+}
+
+.buttonBox {
+    display: flex;
+    gap: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 30px;
+    border: 2px solid rgb(110, 115, 117);
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
