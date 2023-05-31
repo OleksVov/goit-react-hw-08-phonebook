@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 import { useSelector } from "react-redux";
 import {getContacts, getFilter} from 'redux/selectors';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateContact } from "redux/contactOperations";
+
+
 
 
 const filteredContacts = (contacts, filter) => {
@@ -10,7 +15,7 @@ const filteredContacts = (contacts, filter) => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
 )}
 
-const Contacts = ({onDelete}) => {
+const Contacts = ({onDelete, openModal}) => {
     
 const contacts = useSelector(getContacts);
 const filter = useSelector(getFilter);
@@ -23,6 +28,7 @@ const filterOfContacts = filteredContacts(contacts, filter)
           className={css.contactItem}
           key={id}>
             <p className={css.nameContact}>{name}: {number}</p>
+            <button  className={css.buttonDelete} type="button" onClick={() => openModal(name, number, id)}>Update</button>
             <button  className={css.buttonDelete} type="button" onClick={() => onDelete(id)}>Delete</button>
           </li>
         ))}
