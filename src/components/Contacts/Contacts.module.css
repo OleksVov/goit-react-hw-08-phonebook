@@ -38,15 +38,31 @@
 .buttonBox {
     display: flex;
     gap: 30px;
+    
 }
 
 .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-start;
     padding: 30px;
     border: 2px solid rgb(110, 115, 117);
     border-radius: 6px;
     margin-bottom: 10px;
+}
+
+.input {
+  width: 200px;
+    height: 28px;
+    background-color: whitesmoke;
+   color: black;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+   font-family: inherit;
+   font-weight: 600;
+   font-size: 14px;
+   line-height: 1.88;
+   letter-spacing: 0.06em;
+   text-align: center;
 }

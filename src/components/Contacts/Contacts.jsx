@@ -74,9 +74,9 @@ const handleUpdateContact = (event) => {
         
        </ul>
        {showModal && (<Modal onCloseModal={closeModal}>
-        <div className={css.boxForm} >
+       
         <form className={css.form} onSubmit={handleUpdateContact}>
-             <input
+             <input className={css.input}
          type="text"
          name="name"
          value={updateName}
@@ -85,7 +85,7 @@ const handleUpdateContact = (event) => {
          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
          required
         />
-            <input
+            <input className={css.input}
         type="tel"
         name="number"
         value={updateNumber}
@@ -96,7 +96,7 @@ const handleUpdateContact = (event) => {
         />
         <button className={css.button} type="submit">Update</button>
             </form>
-        </div>
+      
 
         <button  className={css.button} type="button" onClick={closeModal}>Close</button>
        </Modal>)}
